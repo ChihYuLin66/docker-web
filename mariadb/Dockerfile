@@ -1,7 +1,4 @@
-ARG MARIADB_VERSION=latest
-FROM mariadb:${MARIADB_VERSION}
-
-
+FROM mariadb:10.6
 
 #####################################
 # Set Timezone

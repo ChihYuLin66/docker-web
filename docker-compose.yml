@@ -99,7 +99,6 @@ services:
         - http_proxy
         - https_proxy
         - no_proxy
-        - MARIADB_VERSION=${MARIADB_VERSION}
     volumes:
       - ${MARIADB_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
     ports:

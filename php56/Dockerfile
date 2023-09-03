@@ -1,6 +1,4 @@
-FROM phusion/baseimage:0.11
-
-
+FROM phusion/baseimage:jammy-1.0.1
 
 # Default baseimage settings
 ENV HOME /root

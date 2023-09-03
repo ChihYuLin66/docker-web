@@ -9,7 +9,7 @@ logs/
 .DS_Store
 
 # sql
-my.cnf
+# my.cnf
 
 
 .env
