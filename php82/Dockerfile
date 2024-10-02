@@ -86,7 +86,9 @@ WORKDIR /var/www
 ####################################
 # Install composer tool 
 ####################################
-RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
+RUN curl -s https://getcomposer.org/installer | php && \
+    mv composer.phar /usr/local/bin/composer
+
 RUN apt-get update && apt install unzip && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Replace shell with bash so we can source files

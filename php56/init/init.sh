@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo Setting PHP INI File
+echo Setting PHP56 INI File
 
 # mv /etc/php/5.6/fpm/php.ini /etc/php/5.6/fpm/php.ini.default
 cp /init/php.ini /etc/php/5.6/fpm/php.ini

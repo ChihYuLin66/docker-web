@@ -7,7 +7,7 @@ services:
 
 ### PHP8.2 #########################################
   php82:
-    container_name: php82
+    container_name: my-php82
     build: 
       context: ./php82
       args: 
@@ -27,7 +27,7 @@ services:
       
 ### PHP7.3 #########################################
   php73:
-    container_name: php73
+    container_name: my-php73
     build: 
       context: ./php73
       args: 
@@ -46,7 +46,7 @@ services:
 
 ### PHP5.6 #########################################
   php56:
-    container_name: php56
+    container_name: my-php56
     build: 
       context: ./php56
       args: 
@@ -67,7 +67,7 @@ services:
 
 ### NGINX Server #########################################
   nginx:
-    container_name: nginx
+    container_name: my-nginx
     build: 
       context: ./nginx
     volumes:
@@ -92,7 +92,7 @@ services:
 
 ### MariaDB ##############################################
   mariadb:
-    container_name: mariadb
+    container_name: my-mariadb
     build:
       context: ./mariadb
       args:
