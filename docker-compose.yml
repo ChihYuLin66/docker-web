@@ -19,6 +19,9 @@ services:
     volumes:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
       - ${PHP82_LOG_PATH}:/var/log/php82
+    ports: 
+      - "${VITE_PORT}:5173"
+      - "${NUXT_PRORT}:3000"
     networks:
       - frontend
     # restart: always
@@ -111,3 +114,31 @@ services:
       - MYSQL_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
     networks:
       - frontend
+
+
+### Python
+
+  selenium:
+    image: selenium/standalone-chrome-debug:latest  # 使用帶有 VNC 支持的 Chrome Debug 映像
+    container_name: selenium
+    ports:
+      - "4444:4444"  # WebDriver 端口，用於 Python 與 Selenium 服務的連接
+      - "5900:5900"  # VNC 端口，用於觀察瀏覽器 GUI
+    environment:
+      - SCREEN_WIDTH=1920
+      - SCREEN_HEIGHT=1080
+      - SCREEN_DEPTH=24
+      - TZ=Asia/Taipei  # 時區
+    shm_size: 2gb  # 增加共享內存，以防止 Chrome 在 Docker 中崩潰
+                    
+  python-app:
+    image: python:3.9
+    container_name: python-app
+    volumes:
+      - /home/user/SideProjects:/usr/src/app  # 主機目錄掛載到容器
+    working_dir: /usr/src/app/
+    environment:
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - selenium
+    tty: true  # 保持容器終端開啟
